@@ -150,6 +150,7 @@ class DotMatrix(object):
                 if characterHexEntry != 0x00 or characterHex == self.blank:
                     message.append(characterHexEntry)
             message.append(0x00)
+        message += self.blank
         return message
     
     def displayScrollingMessage(self, inputStr):
@@ -157,7 +158,7 @@ class DotMatrix(object):
         posn = 0
         message += message
         lenArray = int(len(message)/2)
-        while True:
+        while posn < lenArray -8 :
             for i in range(0,20):
                 self.displayStaticImage(message[posn:posn+8])
             posn = (posn + 1) % lenArray

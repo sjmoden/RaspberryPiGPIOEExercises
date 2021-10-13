@@ -12,7 +12,8 @@ if __name__ == '__main__':  # Program entrance
     GPIO.setup(clockPin, GPIO.OUT)
     try:
         dotMatrix = DotMatrix(dataPin, latchPin, clockPin)
-        dotMatrix.displayScrollingMessage("Morse Code")
+        while True:
+            dotMatrix.displayScrollingMessage("Hello World")
         
 
     finally:
